@@ -5,6 +5,9 @@
   align-items: center;
   width: 100%;
   height: 100%;
+background: #E0EAFC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .persona, .player-persona {
@@ -20,6 +23,7 @@
 .players {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .player h3 {
@@ -46,7 +50,68 @@ table.personaLabel {
   margin-right:12%;
 }
 
-.start-button {
+.start-button, .button {
+  margin: auto;
+  text-align: center;
+  position: relative;
+  display: block;
+  height:100px;
+  width:300px;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  border: 8px solid black;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.5em;
+  line-height:1em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+.start-button:hover, .button:hover {
+  opacity:0.8;
+}
+
+.game-board {
+  width: 90vw;
+  height: 90vw;
+  max-width: 90vh;
+  max-height: 90vh;
+  display: grid;
+}
+
+.game-square {
+  text-align: center;
+  color: white;
+  background: black;
+  outline: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-square img {
+  width: 80%;
+  height: auto;
+}
+
+.board-center-inside-square {
+  grid-column: 2 / -2;
+  grid-row: 2 / -2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+  font-size: 2vh;
+}
+
+.player-avatar .persona {
+  width: 60px;
+  height: auto;
+}
+
+.button {
   margin: auto;
   text-align: center;
   position: relative;
@@ -64,6 +129,6 @@ table.personaLabel {
   cursor:pointer;
 }
 
-.start-button:hover {
-  opacity:0.8;
+p.rolled-die {
+  font-size: 10vh;
 }

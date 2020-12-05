@@ -1,5 +1,6 @@
-import { findAllByPlaceholderText } from '@testing-library/react';
 import React, {Component} from 'react';
+
+import Players from "../components/Players";
 
 class PlayerSelect extends Component {
   state = {
@@ -8,21 +9,32 @@ class PlayerSelect extends Component {
     players: [],
     totalYears: [],
     readyToStart: false,
-    gameFinished: false
+    gameFinished: false,
   };
 
   setPlayer = (persona) => {
-    this.setState((prevState) => ({
-      currentPlayerSelect: prevState.currentPlayerSelect + 1,
-      players: [
-        ...prevState.players,
-        {
-          number: prevState.currentPlayerSelect,
-          persona,
-        },
-      ],
-      readyToStart: prevState.currentPlayerSelect === 2 ? true : false,
-    }));
+    if (this.state.players.find((player) => player.persona === persona)) {
+      // prohibit choosing same player
+      alert(
+        "Looks like you chose the same persona as player 1 — please select a different one"
+      );
+    } else {
+      this.setState((prevState) => ({
+        currentPlayerSelect: prevState.currentPlayerSelect + 1,
+        players: [
+          ...prevState.players,
+          {
+            number: prevState.currentPlayerSelect,
+            persona,
+          },
+        ],
+        readyToStart: prevState.currentPlayerSelect === 2 ? true : false,
+      }));
+    }
+  };
+
+  startGame = () => {
+    this.props.startGame(this.state.players);
   };
 
   render() {
@@ -33,28 +45,14 @@ class PlayerSelect extends Component {
             <div key={player.number} className="player">
               <h3>
                 Player {player.number} :
-                {player.persona === "firstgen" ? (
+                {(player.persona === "firstgen" || player.persona === "firstgen2") ? (
                   <p>
                     First-generation <br></br> college student
                   </p>
                 ) : (
                   <p></p>
                 )}
-                {player.persona === "firstgen2" ? (
-                  <p>
-                    First-generation <br></br> college student
-                  </p>
-                ) : (
-                  <p></p>
-                )}
-                {player.persona === "legacy" ? (
-                  <p>
-                    Legacy <br></br> college student
-                  </p>
-                ) : (
-                  <p></p>
-                )}
-                {player.persona === "legacy2" ? (
+                {(player.persona === "legacy" || player.persona === "legacy2") ? (
                   <p>
                     Legacy <br></br> college student
                   </p>
@@ -75,7 +73,9 @@ class PlayerSelect extends Component {
           // if true, display following
           <React.Fragment>
             <h1>Click start to begin!</h1>
-            <button className="start-button">Start</button>
+            <button onClick={this.startGame} className="start-button">
+              Start
+            </button>
           </React.Fragment>
         ) : (
           // if false, display following
@@ -84,10 +84,12 @@ class PlayerSelect extends Component {
               Player {this.state.currentPlayerSelect}, select your persona
             </h2>
             <table className="personaLabel">
-              <tr>
-                <th>First-generation college student</th>
-                <th>Legacy college student</th>
-              </tr>
+              <tbody>
+                <tr>
+                  <th>First-generation college student</th>
+                  <th>Legacy college student</th>
+                </tr>
+              </tbody>
             </table>
             {this.state.personas.map((persona) => (
               <img
