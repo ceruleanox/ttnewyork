@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class PlayerSelect extends Component {
     
   state = {
-    personas: ['first-gen','legacy'],
+    personas: ['firstgen','legacy'],
     currentPlayerSelect: 1,
     players: [],
     totalYears: []
@@ -14,7 +14,7 @@ class PlayerSelect extends Component {
       <div>
         <h1>Player {this.state.currentPlayerSelect}, select your persona</h1>
         {this.state.personas.map((persona) => (
-          <img src={`./personas/`}></img>
+          <img src={`./personas/${persona}-persona.png`}></img>
         ))}
       </div>
     );
