@@ -1,13 +1,24 @@
+import React, { Component } from "react";
 import './App.css';
 import PlayerSelect from './containers/PlayerSelect';
 
-function App() {
-  return (
-    <div className="App">
-      <PlayerSelect />
+class App extends Component {
+  state = {
+    players: [],
+    gameStarted: false
+  };
 
-    </div>
-  );
+  startGame = (players) => {
+    console.log(players);
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <PlayerSelect startGame={this.startGame} />
+      </div>
+    );
+  }
 }
 
 export default App;

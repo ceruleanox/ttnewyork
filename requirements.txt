@@ -1,16 +1,20 @@
+
+-- install via npm (or yarn)
 node
 react
 
-vscode extension
+-- vscode extension
 eslint
 babel javascript
 
 
-instructions
+
+
+***instructions***
 
 -- start up server:
 
-change directory into game folder
+from terminal, change directory into folder containing these files
 npm start
 
 -- add to github:
@@ -21,3 +25,9 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/ceruleanox/ttnewyork.git
 git push -u origin main
+
+
+*** notes ***
+
+- please leave persona image names the same
+- persona images are resized to 100x100
