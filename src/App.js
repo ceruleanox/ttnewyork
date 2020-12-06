@@ -59,7 +59,7 @@ class App extends Component {
             return player;
           }),
           currentPlayer: prevState.currentPlayer === 1 ? 2 : 1,
-          gameEnded: currentPlayer.location > 80 ? true : false,
+          gameEnded: currentPlayer.location > 40 ? true : false,
       };
     }); // end setState
   }
@@ -79,7 +79,7 @@ class App extends Component {
          :
           <PlayerSelect startGame={this.startGame} />
         }
-        {this.state.gameEnded ? "Ended!" : "" }
+        {this.state.gameEnded ? "Game Over!" : "" }
       </div>
     );
   }

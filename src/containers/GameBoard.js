@@ -109,7 +109,7 @@ rollDie = () => {
                 {square.type !== "start" ? (
                   <img alt={square.type} src={`./images/${square.type}.png`} />
                 ) : (
-                  <p>start of the year</p>
+                  <p>START of the year</p>
                 )}
               </div>
             ))}
@@ -138,11 +138,11 @@ rollDie = () => {
               <button onClick={this.rollDie} className="button">Roll</button>
             </div>
           </div>
-          <div className="card-deck">{
+          {
             this.props.square ?
-            <h4>Player {this.props.square.player} landed on {this.props.square.type}! {this.props.square.points} Points</h4> :
-            ''
-          }</div>
+            <CardSelect className="card-deck" player={this.props.square.player} type={this.props.square.type}/> :
+            <img className="card-deck" src={`./images/logo.png`}/>
+          }
           </div>
         );
     }
