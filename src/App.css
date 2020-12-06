@@ -71,8 +71,15 @@ table.personaLabel {
 .start-button:hover, .button:hover {
   opacity:0.8;
 }
+.game-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
 
 .game-board {
+  margin-top: 30px;
   width: 90vw;
   height: 90vw;
   max-width: 90vh;
@@ -131,4 +138,13 @@ table.personaLabel {
 
 p.rolled-die {
   font-size: 10vh;
+}
+
+.card-deck {
+  width: 210px;
+  height: 270px;
+  background-color: white;
+  border: 1px solid white;
+  margin-top: 100px;
+  margin-left: 100px;
 }

@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+//import CardDeck from "../components/CardDeck";
 import Players from "../components/Players";
+import CardSelect from './CardSelect';
 
 class GameBoard extends Component {
 
     state = {
         squares: [],
-        grid_size: 6
+        grid_size: 6,
+        cards: []
     };
 
     componentDidMount() {
@@ -14,6 +17,8 @@ class GameBoard extends Component {
         this.setState({
             squares
         });
+        
+      
     }
 
 createSquares() {
@@ -65,7 +70,11 @@ createSquares() {
     }
       return squares;
 }
-
+/*
+setCard {
+  this.state.cards = square.type;
+}
+*/
 rollDie = () => {
     const dice = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
     const index = Math.floor(dice.length * Math.random());
@@ -87,6 +96,7 @@ rollDie = () => {
             );
         }
         return (
+          <div className="game-area">
           <div
             className="game-board"
             style={{
@@ -133,6 +143,9 @@ rollDie = () => {
               <p className="rolled-die">{this.state.rolledNumber}</p>
               <button onClick={this.rollDie} className="button">Roll</button>
             </div>
+          </div>
+          <CardSelect cards={this.state.cards}
+          />
           </div>
         );
     }

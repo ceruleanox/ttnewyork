@@ -3,15 +3,13 @@ import './App.css';
 
 import PlayerSelect from './containers/PlayerSelect';
 import GameBoard from "./containers/GameBoard";
-
-import Players from './components/Players';
-
-
+import CardSelect from './containers/CardSelect';
 class App extends Component {
   state = {
     players: [],
     gameStarted: false,
-    currentPlayer: 1
+    currentPlayer: 1,
+    cards: []
   };
 
   startGame = (players) => {
@@ -21,7 +19,8 @@ class App extends Component {
         location: 0,
         yearsLeft: 4,
         finances: 0
-      })),
+      })
+      ),
       gameStarted: true
     });
   }
@@ -68,7 +67,9 @@ class App extends Component {
             square={this.state.square}
             movePlayer={this.movePlayer}
             currentPlayer={this.state.currentPlayer} 
-            players={this.state.players}/>
+            players={this.state.players}
+            
+            />
         ) : (
           <PlayerSelect startGame={this.startGame} />
         )}
