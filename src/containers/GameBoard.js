@@ -4,11 +4,9 @@ import Players from "../components/Players";
 import CardSelect from './CardSelect';
 
 class GameBoard extends Component {
-
     state = {
         squares: [],
-        grid_size: 6,
-        cards: []
+        grid_size: 6
     };
 
     componentDidMount() {
@@ -17,8 +15,6 @@ class GameBoard extends Component {
         this.setState({
             squares
         });
-        
-      
     }
 
 createSquares() {
@@ -90,10 +86,8 @@ rollDie = () => {
         const { grid_size } = this.state;
         let playerLocations = [];
         if (this.state.squares.length > 0) {
-            playerLocations = this.props.players.map(
-              (player) =>
-                this.state.squares[player.location % this.state.squares.length]
-            );
+            playerLocations = this.props.players.map(player =>
+                this.state.squares[player.location % this.state.squares.length]);
         }
         return (
           <div className="game-area">
@@ -144,8 +138,11 @@ rollDie = () => {
               <button onClick={this.rollDie} className="button">Roll</button>
             </div>
           </div>
-          <CardSelect cards={this.state.cards}
-          />
+          <div className="card-deck">{
+            this.props.square ?
+            <h4>Player {this.props.square.player} landed on {this.props.square.type}! {this.props.square.points} Points</h4> :
+            ''
+          }</div>
           </div>
         );
     }

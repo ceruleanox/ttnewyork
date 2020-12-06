@@ -1,3 +1,4 @@
+/*
 import React from 'react'
 
 const CardDeck = ({cards}) => {
@@ -27,3 +28,4 @@ const CardDeck = ({cards}) => {
 };
 
 export default CardDeck;
+*/

@@ -40,35 +40,7 @@ class PlayerSelect extends Component {
   render() {
     return (
       <div>
-        <div className="players">
-          {this.state.players.map((player) => (
-            <div key={player.number} className="player">
-              <h3>
-                Player {player.number} :
-                {(player.persona === "firstgen" || player.persona === "firstgen2") ? (
-                  <p>
-                    First-generation <br></br> college student
-                  </p>
-                ) : (
-                  <p></p>
-                )}
-                {(player.persona === "legacy" || player.persona === "legacy2") ? (
-                  <p>
-                    Legacy <br></br> college student
-                  </p>
-                ) : (
-                  <p></p>
-                )}
-              </h3>
-              <img
-                className="player-persona"
-                alt={player.persona}
-                src={`./personas/${player.persona}-persona.png`}
-              />
-            </div>
-          ))}
-        </div>
-
+        <Players players={this.state.players} />
         {this.state.readyToStart ? (
           // if true, display following
           <React.Fragment>

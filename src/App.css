@@ -10,10 +10,17 @@ background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-2
 background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.persona, .player-persona {
+.persona {
   width: 100px;
   height: 100px;
   cursor: pointer;
+}
+
+.player-persona {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  padding: 20px;
 }
 
 .persona:hover {
@@ -34,6 +41,9 @@ background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, F
 .player p {
   font-family: 'PT Sans Narrow', sans-serif;
   text-align: center;
+}
+.player-score {
+  font-size: 1em;
 }
 
 div {
@@ -79,12 +89,12 @@ table.personaLabel {
 }
 
 .game-board {
-  margin-top: 30px;
-  width: 90vw;
-  height: 90vw;
-  max-width: 90vh;
-  max-height: 90vh;
+  width: 60vw;
+  height: 60vw;
+  max-width: 70vh;
+  max-height: 70vh;
   display: grid;
+  margin-top: -20vh;
 }
 
 .game-square {
@@ -146,5 +156,5 @@ p.rolled-die {
   background-color: white;
   border: 1px solid white;
   margin-top: 100px;
-  margin-left: 100px;
+  margin-left: 50px;
 }
